@@ -16,7 +16,7 @@ const Projects = () => {
     {
       title: "AI Chat Application",
       description: "Real-time chat application with AI-powered responses.",
-      image: "/images/project2.png",
+      image: "/images/project2.pngx",
       technologies: ["React", "Socket.io", "OpenAI", "Firebase"],
       github: "https://github.com/yourusername/project2",
       live: "https://project2.com"

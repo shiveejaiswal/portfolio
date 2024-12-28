@@ -7,7 +7,7 @@ import Projects from './components/Projects';
 import Footer from './components/Footer';
 import './App.css';
 import './assets/css/animation.css';
-import { sendEmail } from './actions/send-email'
+
 
 function App() {
   const { scrollYProgress } = useScroll();
@@ -41,14 +41,35 @@ function App() {
       setPending(true)
       setMessage(null)
 
-      const formData = new FormData(e.target)
-      const result = await sendEmail(formData)
+      try {
+        const formData = new FormData(e.target)
+        const data = {
+          name: formData.get('name'),
+          email: formData.get('email'),
+          message: formData.get('message')
+        }
 
-      setPending(false)
-      setMessage(result)
+        const response = await fetch('/api/send-email', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        })
 
-      if (result.success) {
-        e.target.reset()
+        const result = await response.json()
+        setMessage(result)
+
+        if (result.success) {
+          e.target.reset()
+        }
+      } catch (error) {
+        setMessage({
+          success: false,
+          message: 'An error occurred. Please try again later.'
+        })
+      } finally {
+        setPending(false)
       }
     }
 
@@ -297,3 +318,4 @@ function App() {
 }
 
 export default App;
+
