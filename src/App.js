@@ -7,6 +7,8 @@ import Projects from './components/Projects';
 import Footer from './components/Footer';
 import './App.css';
 import './assets/css/animation.css';
+import backgroundImage from './assets/images/background.jpg';
+import aboutMeImage from './assets/images/profile.jpg';
 
 function App() {
   const { scrollYProgress } = useScroll();
@@ -36,7 +38,7 @@ function App() {
       <Header />
       <main>
         {/* Hero Section */}
-        <section id="home" className="hero-section">
+        <section id="home" className="hero-section" style={{ backgroundImage: `url(${backgroundImage})` }}>
           <div className="hero-content">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
@@ -44,7 +46,7 @@ function App() {
               transition={{ duration: 0.5 }}
               className="hero-title"
             >
-              Hi, I'm <span className="highlight">Your Name</span>
+              Hi, I'm <span className="highlight">Shivee Jaiswal</span>
             </motion.h1>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
@@ -71,7 +73,7 @@ function App() {
               <a href="#contact" className="primary-button">
                 Get in Touch
               </a>
-              <a href="/resume.pdf" className="secondary-button" download>
+              <a href="/images/resume.pdf" className="secondary-button" download>
                 <FiDownload /> Resume
               </a>
             </motion.div>
@@ -141,7 +143,7 @@ function App() {
                 </div>
               </div>
               <div className="about-image">
-                <img src="/images/AboutMe.jpg" alt="Your Name" />
+                <img src={aboutMeImage} alt="Shivee Jaiswal" /> {/* Updated image path */}
               </div>
             </div>
           </motion.div>
@@ -231,4 +233,3 @@ function App() {
 }
 
 export default App;
-
