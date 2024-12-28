@@ -18,8 +18,8 @@
 }
 
 .highlight {
-    background: linear-gradient(45deg, #00ffff, #00ff87);
-    -webkit-background-clip: text;
+    background: linear-gradient(45deg, #497df5, #4287ff);
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 

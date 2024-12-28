@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { motion, useScroll, useSpring } from "framer-motion";
-import { FiGithub, FiLinkedin, FiTwitter, FiDownload } from "react-icons/fi";
+import { FiDownload } from "react-icons/fi";
 import { SiJavascript, SiReact, SiNodedotjs, SiPython, SiMongodb, SiDocker } from "react-icons/si";
 import Header from './components/Header';
 import Projects from './components/Projects';
 import Footer from './components/Footer';
 import './App.css';
 import './assets/css/animation.css';
-
 
 function App() {
   const { scrollYProgress } = useScroll();
@@ -30,126 +29,6 @@ function App() {
     { name: "MongoDB", icon: <SiMongodb />, level: 70 },
     { name: "Docker", icon: <SiDocker />, level: 65 },
   ];
-
-  // Update the contact section
-  const ContactSection = () => {
-    const [pending, setPending] = useState(false)
-    const [message, setMessage] = useState(null)
-
-    const handleSubmit = async (e) => {
-      e.preventDefault()
-      setPending(true)
-      setMessage(null)
-
-      try {
-        const formData = new FormData(e.target)
-        const data = {
-          name: formData.get('name'),
-          email: formData.get('email'),
-          message: formData.get('message')
-        }
-
-        const response = await fetch('/api/send-email', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data)
-        })
-
-        const result = await response.json()
-        setMessage(result)
-
-        if (result.success) {
-          e.target.reset()
-        }
-      } catch (error) {
-        setMessage({
-          success: false,
-          message: 'An error occurred. Please try again later.'
-        })
-      } finally {
-        setPending(false)
-      }
-    }
-
-    return (
-      <section id="contact" className="contact-section">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="section-container"
-        >
-          <h2 className="section-title">Get in <span className="highlight">Touch</span></h2>
-          <div className="contact-content">
-            <div className="contact-info">
-              <h3>Let's talk about everything!</h3>
-              <p>
-                Don't like forms? Send me an email directly at{" "}
-                <a href="mailto:your.email@example.com" className="highlight-link">
-                  your.email@example.com
-                </a>
-              </p>
-              <div className="social-links">
-                <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
-                  <FiGithub />
-                </a>
-                <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">
-                  <FiLinkedin />
-                </a>
-                <a href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer">
-                  <FiTwitter />
-                </a>
-              </div>
-            </div>
-            <form className="contact-form" onSubmit={handleSubmit}>
-              <div className="form-group">
-                <input 
-                  type="text" 
-                  name="name"
-                  placeholder="Your Name" 
-                  required 
-                  disabled={pending}
-                />
-              </div>
-              <div className="form-group">
-                <input 
-                  type="email" 
-                  name="email"
-                  placeholder="Your Email" 
-                  required 
-                  disabled={pending}
-                />
-              </div>
-              <div className="form-group">
-                <textarea 
-                  name="message"
-                  placeholder="Your Message" 
-                  rows={6} 
-                  required
-                  disabled={pending}
-                ></textarea>
-              </div>
-              {message && (
-                <div className={`form-message ${message.success ? 'success' : 'error'}`}>
-                  {message.message}
-                </div>
-              )}
-              <button 
-                type="submit" 
-                className="primary-button"
-                disabled={pending}
-              >
-                {pending ? 'Sending...' : 'Send Message'}
-              </button>
-            </form>
-          </div>
-        </motion.div>
-      </section>
-    )
-  }
 
   return (
     <div className="app">
@@ -262,7 +141,7 @@ function App() {
                 </div>
               </div>
               <div className="about-image">
-                <img src="/images/profile.jpg" alt="Your Name" />
+                <img src="/images/AboutMe.jpg" alt="Your Name" />
               </div>
             </div>
           </motion.div>
@@ -309,8 +188,42 @@ function App() {
         <Projects />
 
         {/* Contact Section */}
-        <ContactSection />
-
+        <section id="contact" className="contact-section">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="section-container"
+          >
+            <h2 className="section-title">Get in <span className="highlight">Touch</span></h2>
+            <div className="contact-content">
+              <div className="contact-info">
+                <h3>Let's talk about everything!</h3>
+                <p>
+                  Don't like forms? Send me an email directly at{" "}
+                  <a href="mailto:your.email@example.com" className="highlight-link">
+                    your.email@example.com
+                  </a>
+                </p>
+              </div>
+              <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
+                <div className="form-group">
+                  <input type="text" placeholder="Your Name" required />
+                </div>
+                <div className="form-group">
+                  <input type="email" placeholder="Your Email" required />
+                </div>
+                <div className="form-group">
+                  <textarea placeholder="Your Message" rows={6} required></textarea>
+                </div>
+                <button type="submit" className="primary-button">
+                  Send Message
+                </button>
+              </form>
+            </div>
+          </motion.div>
+        </section>
       </main>
       <Footer />
     </div>

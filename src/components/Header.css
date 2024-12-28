@@ -17,7 +17,7 @@
 }
 
 .header-content {
-    max-width: 1200px;
+    max-width: 2000px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -32,14 +32,14 @@
 }
 
 .logo-text {
-    background: linear-gradient(45deg, #00ffff, #00ff87);
-    -webkit-background-clip: text;
+    background: linear-gradient(45deg,#497df5,#4287ff);
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .nav-menu ul {
     display: flex;
-    gap: 2rem;
+    gap: 2rem;  
     list-style: none;
 }
 
