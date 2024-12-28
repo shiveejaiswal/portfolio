@@ -9,7 +9,7 @@
 
 .project-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgb(129, 158, 252);
+    box-shadow: 0 8px 16px rgb(65, 106, 240);
 }
 
 .project-image-container {
@@ -67,7 +67,7 @@
 
 .project-description {
     font-size: 1rem;
-    color: #8bb8e6;
+    color: rgb(95, 130, 248);
     margin-bottom: 20px;
 }
 
