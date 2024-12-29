@@ -1,16 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FiGithub, FiLinkedin, FiCode, FiMail, FiInstagram, FiTwitter } from "react-icons/fi";
-import { cibLeetcode } from '@coreui/icons';
-import CIcon from '@coreui/icons-react';
+import { FiGithub, FiLinkedin, FiMail, FiInstagram, FiTwitter } from "react-icons/fi";
 import "./Footer.css";
 
 const Footer = () => {
   const socialLinks = [
     { icon: <FiGithub />, url: "https://github.com/shiveejaiswal" },
     { icon: <FiLinkedin />, url: "https://www.linkedin.com/in/shivee-jaiswal-819b761b7/" },
-    { icon: <CIcon icon={cibLeetcode} />, url: "https://leetcode.com/u/shivee25/" },
-    { icon: <FiCode />, url: "https://www.geeksforgeeks.org/user/shivee_jaiswal/" },
+    { icon: <img src="./assets/images/leetcode.svg" alt="Le" className="icon-img" />, url: "https://leetcode.com/u/shivee25/" },
+    { icon: <img src="./assets/images/geeksforgeek.svg" alt="GFG" className="icon-img" />, url: "https://www.geeksforgeeks.org/user/shivee_jaiswal/" },
     { icon: <FiMail />, url: "mailto:shiveejaiswal25@gmail.com" },
     { icon: <FiInstagram />, url: "https://www.instagram.com/shiveejaiswal25/" },
     { icon: <FiTwitter />, url: "https://x.com/Shiveejaiswal25" },
