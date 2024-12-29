@@ -1,14 +1,19 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FiGithub, FiLinkedin, FiTwitter, FiMail } from "react-icons/fi";
+import { FiGithub, FiLinkedin, FiCode, FiMail, FiInstagram, FiTwitter } from "react-icons/fi";
+import { cibLeetcode } from '@coreui/icons';
+import CIcon from '@coreui/icons-react';
 import "./Footer.css";
 
 const Footer = () => {
   const socialLinks = [
-    { icon: <FiGithub />, url: "https://github.com/yourusername" },
-    { icon: <FiLinkedin />, url: "https://linkedin.com/in/yourusername" },
-    { icon: <FiTwitter />, url: "https://twitter.com/yourusername" },
-    { icon: <FiMail />, url: "mailto:your.email@example.com" },
+    { icon: <FiGithub />, url: "https://github.com/shiveejaiswal" },
+    { icon: <FiLinkedin />, url: "https://www.linkedin.com/in/shivee-jaiswal-819b761b7/" },
+    { icon: <CIcon icon={cibLeetcode} />, url: "https://leetcode.com/u/shivee25/" },
+    { icon: <FiCode />, url: "https://www.geeksforgeeks.org/user/shivee_jaiswal/" },
+    { icon: <FiMail />, url: "mailto:shiveejaiswal25@gmail.com" },
+    { icon: <FiInstagram />, url: "https://www.instagram.com/shiveejaiswal25/" },
+    { icon: <FiTwitter />, url: "https://x.com/Shiveejaiswal25" },
   ];
 
   return (
@@ -45,7 +50,7 @@ const Footer = () => {
           </motion.div>
         </div>
         <div className="footer-bottom">
-          <p>© {new Date().getFullYear()} Your Name. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Shivee Jaiswal. All rights reserved.</p>
         </div>
       </div>
     </footer>
@@ -53,4 +58,3 @@ const Footer = () => {
 };
 
 export default Footer;
-

@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
 import { motion, useScroll, useSpring } from "framer-motion";
 import { FiDownload } from "react-icons/fi";
-import { SiJavascript, SiReact, SiNodedotjs, SiPython, SiMongodb, SiDocker } from "react-icons/si";
+import { FaCode, FaJava, FaDatabase, FaHtml5, FaJsSquare, FaGitAlt } from "react-icons/fa";
+import { MdOutlineEmojiObjects } from "react-icons/md";
+import { GrSystem } from "react-icons/gr";
 import Header from './components/Header';
 import Projects from './components/Projects';
 import Footer from './components/Footer';
@@ -22,15 +24,6 @@ function App() {
     document.body.style.overflow = 'auto';
     document.body.style.overflowX = 'hidden';
   }, []);
-
-  const skills = [
-    { name: "JavaScript", icon: <SiJavascript />, level: 90 },
-    { name: "React", icon: <SiReact />, level: 85 },
-    { name: "Node.js", icon: <SiNodedotjs />, level: 80 },
-    { name: "Python", icon: <SiPython />, level: 75 },
-    { name: "MongoDB", icon: <SiMongodb />, level: 70 },
-    { name: "Docker", icon: <SiDocker />, level: 65 },
-  ];
 
   return (
     <div className="app">
@@ -70,12 +63,10 @@ function App() {
               transition={{ duration: 0.5, delay: 0.6 }}
               className="hero-buttons"
             >
-              <a href="#contact" className="primary-button">
-                Get in Touch
-              </a>
+              <a href="#contact" className="primary-button" style={{ marginRight: '50px' }}>Get in Touch</a> 
               <a href="/images/resume.pdf" className="secondary-button" download>
-                <FiDownload /> Resume
-              </a>
+              <FiDownload /> Resume</a>
+
             </motion.div>
           </div>
           <div className="hero-background">
@@ -116,75 +107,81 @@ function App() {
             <div className="about-content">
               <div className="about-text">
                 <p>
-                  I'm a passionate Full Stack Developer with a strong foundation in web technologies
-                  and a keen eye for creating engaging user experiences. With several years of
-                  experience in the field, I've had the opportunity to work on diverse projects
-                  that have sharpened my skills in both frontend and backend development.
+                  I am a final-year B.E. student in Information Science at Nitte Meenakshi Institute of Technology, Bengaluru, with a strong passion for coding, problem-solving, and building impactful software solutions. My technical expertise spans frontend and backend development, including proficiency in HTML, CSS, JavaScript, React.js and Java, coupled with hands-on experience in developing user-friendly web applications and efficient systems.
                 </p>
                 <p>
-                  My journey in technology began with a curiosity about how things work, which
-                  led me to pursue a degree in Computer Science. Since then, I've been
-                  continuously learning and adapting to new technologies while building
-                  applications that make a difference.
+                  I thrive in collaborative environments and have successfully contributed to diverse projects, such as building dynamic websites and creating management systems. Committed to continuous learning, I actively seek opportunities to explore new technologies and enhance my skills. My goal is to contribute to a team that values innovation, quality, and meaningful impact while fostering personal and professional growth.
                 </p>
+                
                 <div className="about-stats">
                   <div className="stat-item">
-                    <h3>3+</h3>
-                    <p>Years of Experience</p>
+                    <h3>250+</h3>
+                    <p>DSA Problems solved</p>
                   </div>
                   <div className="stat-item">
-                    <h3>50+</h3>
+                    <h3>8.46</h3>
+                    <p>CGPA</p>
+                  </div>
+                  <div className="stat-item">
+                    <h3>6+</h3>
                     <p>Projects Completed</p>
-                  </div>
-                  <div className="stat-item">
-                    <h3>20+</h3>
-                    <p>Happy Clients</p>
                   </div>
                 </div>
               </div>
               <div className="about-image">
-                <img src={aboutMeImage} alt="Shivee Jaiswal" /> {/* Updated image path */}
+                <img src={aboutMeImage} alt="Shivee Jaiswal" />
               </div>
             </div>
           </motion.div>
         </section>
 
         {/* Skills Section */}
-        <section id="skills" className="skills-section">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="section-container"
-          >
-            <h2 className="section-title">My <span className="highlight">Skills</span></h2>
-            <div className="skills-grid">
-              {skills.map((skill, index) => (
-                <motion.div
-                  key={skill.name}
-                  className="skill-card"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                >
-                  <div className="skill-icon">{skill.icon}</div>
-                  <h3>{skill.name}</h3>
-                  <div className="skill-bar-container">
-                    <motion.div
-                      className="skill-bar"
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${skill.level}%` }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 1, delay: 0.5 }}
-                    />
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </section>
+<section id="skills" className="skills-section">
+  <motion.div
+    initial={{ opacity: 0 }}
+    whileInView={{ opacity: 1 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.6 }}
+    className="section-container"
+  >
+    <h2 className="section-title">My <span className="highlight">Skills</span></h2>
+    <div className="skills-grid">
+      {[
+        { name: 'DSA', level: 80, icon: <FaCode /> },
+        { name: 'OOPs', level: 90, icon: <MdOutlineEmojiObjects /> }, 
+        { name: 'Java', level: 85, icon: <FaJava /> },
+        { name: 'SQL', level: 80, icon: <FaDatabase /> },
+        { name: 'OS', level: 85, icon: <GrSystem /> }, 
+        { name: 'HTML/CSS', level: 85, icon: <FaHtml5 /> },
+        { name: 'JavaScript', level: 60, icon: <FaJsSquare /> },
+        { name: 'Version Control System', level: 90, icon: <FaGitAlt /> }
+      ].map((skill, index) => (
+        <motion.div
+          key={skill.name}
+          className="skill-card"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: index * 0.1 }}
+        >
+          <div className="skill-icon">{skill.icon}</div>
+          <h3>{skill.name}</h3>
+          <div className="skill-bar-container">
+            <motion.div
+              className="skill-bar"
+              initial={{ width: 0 }}
+              whileInView={{ width: `${skill.level}%` }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, delay: 0.5 }}
+            />
+          </div>
+        </motion.div>
+      ))}
+    </div>
+  </motion.div>
+</section>
+
+
 
         {/* Projects Section */}
         <Projects />
@@ -205,7 +202,7 @@ function App() {
                 <p>
                   Don't like forms? Send me an email directly at{" "}
                   <a href="mailto:your.email@example.com" className="highlight-link">
-                    your.email@example.com
+                    shiveejaiswal25@gmail.com
                   </a>
                 </p>
               </div>
