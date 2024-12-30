@@ -64,7 +64,7 @@ function App() {
               className="hero-buttons"
             >
               <a href="#contact" className="primary-button" style={{ marginRight: '50px' }}>Get in Touch</a> 
-              <a href="/images/resume.pdf" className="secondary-button" download>
+              <a href="/docs/resume.pdf" className="secondary-button" download>
               <FiDownload /> Resume</a>
 
             </motion.div>

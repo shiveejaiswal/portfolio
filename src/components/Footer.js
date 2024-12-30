@@ -5,13 +5,13 @@ import "./Footer.css";
 
 const Footer = () => {
   const socialLinks = [
-    { icon: <FiGithub />, url: "https://github.com/shiveejaiswal" },
-    { icon: <FiLinkedin />, url: "https://www.linkedin.com/in/shivee-jaiswal-819b761b7/" },
-    { icon: <img src="./assets/images/leetcode.svg" alt="Le" className="icon-img" />, url: "https://leetcode.com/u/shivee25/" },
-    { icon: <img src="./assets/images/geeksforgeek.svg" alt="GFG" className="icon-img" />, url: "https://www.geeksforgeeks.org/user/shivee_jaiswal/" },
-    { icon: <FiMail />, url: "mailto:shiveejaiswal25@gmail.com" },
-    { icon: <FiInstagram />, url: "https://www.instagram.com/shiveejaiswal25/" },
-    { icon: <FiTwitter />, url: "https://x.com/Shiveejaiswal25" },
+    { icon: <img src={process.env.PUBLIC_URL + "/assets/images/leetcode.png"} alt="LeetCode" className="icon-img" />, url: "https://leetcode.com/u/shivee25/" },
+    { icon: <img src={process.env.PUBLIC_URL + "/assets/images/gfg.png"} alt="GeeksForGeeks" className="icon-img" />, url: "https://www.geeksforgeeks.org/user/shivee_jaiswal/" },
+    { icon: <FiGithub />, url: "https://github.com/shiveejaiswal", alt: "GitHub" },
+    { icon: <FiLinkedin />, url: "https://www.linkedin.com/in/shivee-jaiswal-819b761b7/", alt: "LinkedIn" },
+    { icon: <FiMail />, url: "mailto:shiveejaiswal25@gmail.com", alt: "Email" },
+    { icon: <FiInstagram />, url: "https://www.instagram.com/shiveejaiswal25/", alt: "Instagram" },
+    { icon: <FiTwitter />, url: "https://x.com/Shiveejaiswal25", alt: "Twitter" },
   ];
 
   return (
@@ -41,6 +41,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1, y: -5 }}
                 whileTap={{ scale: 0.9 }}
+                className="social-link"
               >
                 {link.icon}
               </motion.a>
