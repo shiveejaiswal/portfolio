@@ -1,70 +1,73 @@
-# Getting Started with Create React App
+# Shivee Jaiswal's Portfolio Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is my personal portfolio website, built with **React.js** and **Framer Motion**. It showcases my skills, projects, and experience as a **Full Stack Developer**.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Live Demo](#live-demo)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [Contributing](#contributing)
+- [Contact](#contact)
 
-### `npm start`
+## Live Demo
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Check out the live version of the website here: [Portfolio Website](https://shiveejaiswal.github.io/portfolio/)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features
 
-### `npm test`
+- Interactive and animated hero section
+- About me section with a detailed bio
+- Skills section with dynamic progress bars for various technical skills
+- Project showcase with links to live demos and source code
+- Contact form for visitors to get in touch
+- Responsive design for both desktop and mobile views
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technologies Used
 
-### `npm run build`
+- **React.js** - Frontend library for building UI components.
+- **Framer Motion** - For animations and smooth transitions.
+- **React Icons** - For using icons in the skills section and buttons.
+- **CSS** - For styling and responsive design.
+- **EmailJS** - (optional) For handling contact form submissions.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Installation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To run the portfolio website locally:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Clone this repository:
 
-### `npm run eject`
+   ```bash
+   git clone https://github.com/shiveejaiswal/portfolio
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. Navigate to the project directory:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   ```bash
+   cd portfolio
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+3. Install the required dependencies:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   ```bash
+   npm install
+   ```
 
-## Learn More
+4. Start the development server:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+   ```bash
+   npm start
+   ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The website should now be running on `http://localhost:3000/`.
 
-### Code Splitting
+## Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+If you would like to contribute to this project, feel free to fork the repository and submit a pull request. Any suggestions or improvements are welcome!
 
-### Analyzing the Bundle Size
+## Contact
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+For any questions or collaboration inquiries, you can reach me at:
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Email: [shiveejaiswal25@gmail.com](mailto:shiveejaiswal25@gmail.com)
