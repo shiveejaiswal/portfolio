@@ -8,6 +8,7 @@ import project3Image from "../assets/images/project3.png";
 import project4Image from "../assets/images/project4.png";
 import project5Image from "../assets/images/project5.png";
 import project6Image from "../assets/images/project6.png";
+import project7Image from "../assets/images/project7.png";
 
 const Projects = () => {
   const projects = [
@@ -50,6 +51,14 @@ const Projects = () => {
       technologies: ["HTML", "CSS", "JavaScript"],
       github: "https://github.com/shiveejaiswal/Tourism-Website",
       live: "https://tourism-website-black.vercel.app/"
+    },
+    {
+      title: "Dynamic To-Do List",
+      description: "This task manager app, enables users to add, edit, and delete tasks. It features a sleek, responsive UI, smooth animations, and integrates with a dummy API.",
+      image: project7Image,
+      technologies: ["React", "Redux", "Tailwind CSS"],
+      github: "https://github.com/shiveejaiswal/todo-manager",
+      live: "https://todo-manager-shivee.vercel.app/"
     },
     {
       title: "My-LMS",
