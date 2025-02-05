@@ -9,6 +9,9 @@ import project4Image from "../assets/images/project4.png";
 import project5Image from "../assets/images/project5.png";
 import project6Image from "../assets/images/project6.png";
 import project7Image from "../assets/images/project7.png";
+import project8Image from "../assets/images/project8.png";
+import project9Image from "../assets/images/project9.png";
+
 
 const Projects = () => {
   const projects = [
@@ -21,7 +24,31 @@ const Projects = () => {
       live: "https://github.com/shiveejaiswal/Bank-Management-System"
     },
     {
-      title: "Proviz-AI website",
+      title: "Movie Recommendation Model",
+      description: "Developed a Movie Recommendation System using Python and Node.js, which analyzes movie overviews to suggest similar movies by implementing TF-IDF Vectorizer and Sigmoid kernel.",
+      image: project8Image,
+      technologies: ["Python", "React", "Node.js", "TMDB API"],
+      github: "https://github.com/shiveejaiswal/Movie-Recommendation-Model",
+      live: "https://github.com/shiveejaiswal/Movie-Recommendation-Model"
+    },
+    {
+      title: "Biometric Attendance System",
+      description: "This project is a real-time face recognition-based attendance system using Python, OpenCV, and the face_recognition library. It captures live video input from a webcam, detects faces, and marks the attendance of recognized individuals.",
+      image: project9Image,
+      technologies: ["Python", "opencv-python", "face_recognition"],
+      github: "https://github.com/shiveejaiswal/face-recognition-attendance",
+      live: "https://github.com/shiveejaiswal/face-recognition-attendance"
+    },
+    {
+      title: "Dynamic Form Generator",
+      description: "A dynamic form generator that creates real-time, responsive forms from a JSON schema. It provides a split-screen interface with a JSON editor on the left and a live form preview on the right.",
+      image: project5Image,
+      technologies: ["TypeScript", "React", "HTML", "CSS"],
+      github: "https://github.com/shiveejaiswal/dynamic-form-submission",
+      live: "https://dynamic-form-submission.vercel.app/"
+    },
+    {
+      title: "Proviz School website",
       description: "Designed and developed a responsive landing page, showcasing the AI programs offered by Proviz School of AI.Integrated smooth animations, enhancing user interaction and engagement as users explore the website.",
       image: project1Image,
       technologies: ["React", "Node.js","Tailwind CSS", "AOS"],
@@ -35,14 +62,6 @@ const Projects = () => {
       technologies: ["React", "HTML", "CSS"],
       github: "https://github.com/shiveejaiswal/CodeAnt-AI",
       live: "https://code-ant-ai-chi.vercel.app/"
-    },
-    {
-      title: "Dynamic Form Generator",
-      description: "A dynamic form generator that creates real-time, responsive forms from a JSON schema. It provides a split-screen interface with a JSON editor on the left and a live form preview on the right.",
-      image: project5Image,
-      technologies: ["TypeScript", "React", "HTML", "CSS"],
-      github: "https://github.com/shiveejaiswal/dynamic-form-submission",
-      live: "https://dynamic-form-submission.vercel.app/"
     },
     {
       title: "Tourism-Website",

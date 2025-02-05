@@ -37,7 +37,7 @@ const Header = () => {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
         >
-          <span className="logo-text">Portfolio</span>
+          <span className="logo-text">Shivee Jaiswal</span>
         </motion.h1>
 
         <nav className={`nav-menu ${isMenuOpen ? "active" : ""}`}>
