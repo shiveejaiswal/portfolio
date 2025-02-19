@@ -39,7 +39,7 @@ To run the portfolio website locally:
 1. Clone this repository:
 
    ```bash
-   git clone https://github.com/shiveejaiswal/portfolio
+   git clone https://github.com/deepakaurya/portfolio
    ```
 
 2. Navigate to the project directory:
