@@ -13,7 +13,7 @@ This is my personal portfolio website, built with **React.js** and **Framer Moti
 
 ## Live Demo
 
-Check out the live version of the website here: [Portfolio Website](https://shiveejaiswal.github.io/portfolio/)
+Check out the live version of the website here: [Portfolio Website](https://deepakaurya.github.io/portfolio/)
 
 ## Features
 
