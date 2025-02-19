@@ -1,4 +1,4 @@
-# Shivee Jaiswal's Portfolio Website
+# Deepak Maurya's Portfolio Website
 
 This is my personal portfolio website, built with **React.js** and **Framer Motion**. It showcases my skills, projects, and experience as a **Full Stack Developer**.
 
@@ -13,7 +13,7 @@ This is my personal portfolio website, built with **React.js** and **Framer Moti
 
 ## Live Demo
 
-Check out the live version of the website here: [Portfolio Website](https://shiveejaiswal.github.io/portfolio/)
+Check out the live version of the website here: [Portfolio Website](https://deepakaurya.github.io/portfolio/)
 
 ## Features
 
@@ -39,7 +39,7 @@ To run the portfolio website locally:
 1. Clone this repository:
 
    ```bash
-   git clone https://github.com/shiveejaiswal/portfolio
+   git clone https://github.com/deepakaurya/portfolio
    ```
 
 2. Navigate to the project directory:
@@ -70,4 +70,4 @@ If you would like to contribute to this project, feel free to fork the repositor
 
 For any questions or collaboration inquiries, you can reach me at:
 
-- Email: [shiveejaiswal25@gmail.com](mailto:shiveejaiswal25@gmail.com)
+- Email: [deepak965147@gmail.com](mailto:deepak965147@gmail.com)
