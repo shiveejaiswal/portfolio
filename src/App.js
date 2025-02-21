@@ -1,9 +1,12 @@
 import React, { useEffect } from 'react';
 import { motion, useScroll, useSpring } from "framer-motion";
 import { FiDownload } from "react-icons/fi";
-import { FaCode, FaJava, FaDatabase, FaHtml5, FaJsSquare, FaGitAlt } from "react-icons/fa";
+import { RiFileExcel2Fill } from "react-icons/ri";
+import { FaCode, FaJava, FaDatabase, FaHtml5, FaNetworkWired, FaGitAlt } from "react-icons/fa";
 import { MdOutlineEmojiObjects } from "react-icons/md";
+import { SiGoogleanalytics } from "react-icons/si";
 import { GrSystem } from "react-icons/gr";
+import { IoLogoJavascript } from "react-icons/io5";
 import Header from './components/Header';
 import Projects from './components/Projects';
 import Footer from './components/Footer';
@@ -121,11 +124,11 @@ function App() {
                     <p>DSA Problems solved</p>
                   </div>
                   <div className="stat-item">
-                    <h3>8.46</h3>
+                    <h3>8.52</h3>
                     <p>CGPA</p>
                   </div>
                   <div className="stat-item">
-                    <h3>6+</h3>
+                    <h3>9+</h3>
                     <p>Projects Completed</p>
                   </div>
                 </div>
@@ -136,8 +139,7 @@ function App() {
             </div>
           </motion.div>
         </section>
-
-        {/* Skills Section */}
+{/* Skills Section */}
 <section id="skills" className="skills-section">
   <motion.div
     initial={{ opacity: 0 }}
@@ -149,13 +151,17 @@ function App() {
     <h2 className="section-title">My <span className="highlight">Skills</span></h2>
     <div className="skills-grid">
       {[
+        { name: 'Java', level: 85, icon: <FaJava /> },
+        { name: 'Python', level: 70, icon: <FaCode /> },
         { name: 'DSA', level: 80, icon: <FaCode /> },
         { name: 'OOPs', level: 90, icon: <MdOutlineEmojiObjects /> }, 
-        { name: 'Java', level: 85, icon: <FaJava /> },
         { name: 'SQL', level: 80, icon: <FaDatabase /> },
-        { name: 'OS', level: 85, icon: <GrSystem /> }, 
+        { name: 'Java Script (React)', level: 60, icon: <IoLogoJavascript /> },
+        { name: 'CN', level: 70, icon: <FaNetworkWired /> },
+        { name: 'OS', level: 70, icon: <GrSystem /> }, 
         { name: 'HTML/CSS', level: 85, icon: <FaHtml5 /> },
-        { name: 'JavaScript', level: 60, icon: <FaJsSquare /> },
+        { name: 'MS Excel', level: 80, icon: <RiFileExcel2Fill /> },
+        { name: 'Power BI', level: 80, icon: <SiGoogleanalytics /> },
         { name: 'Version Control System', level: 90, icon: <FaGitAlt /> }
       ].map((skill, index) => (
         <motion.div
@@ -182,11 +188,8 @@ function App() {
     </div>
   </motion.div>
 </section>
-
-
-
-        {/* Projects Section */}
-        <Projects />
+{/* Projects Section */}
+<Projects />
 
         {/* Contact Section */}
         <section id="contact" className="contact-section">
