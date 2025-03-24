@@ -70,4 +70,4 @@ If you would like to contribute to this project, feel free to fork the repositor
 
 For any questions or collaboration inquiries, you can reach me at:
 
-- Email: [shiveejaiswal25@gmail.com](mailto:shiveejaiswal25@gmail.com)
+Email: [shiveejaiswal25@gmail.com](mailto:shiveejaiswal25@gmail.com)
