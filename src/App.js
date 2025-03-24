@@ -67,7 +67,7 @@ function App() {
               className="hero-buttons"
             >
               <a href="#contact" className="primary-button" style={{ marginBottom: '30px', marginRight: "3px" }}>Get in Touch</a> 
-              <a href="https://raw.githubusercontent.com/shiveejaiswal/portfolio/main/public/docs/resume.pdf" className="secondary-button" download>
+              <a href="https://raw.githubusercontent.com/shiveejaiswal/portfolio/main/public/docs/Resume.pdf" className="secondary-button" download>
               <FiDownload /> Resume
               </a>
 
