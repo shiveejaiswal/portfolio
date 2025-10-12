@@ -183,6 +183,7 @@
   height: auto;
   border-radius: 20px;
   object-fit: cover;
+  transform: scale(1.15);
 }
 
 /* Skills Section */
@@ -288,11 +289,56 @@
   transition: all 0.3s ease;
 }
 
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.form-group input:not(:placeholder-shown),
+.form-group textarea:not(:placeholder-shown) {
+  color: #000;
+  background: rgba(255, 255, 255, 0.9);
+}
+
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
   border-color: var(--primary);
   background: rgb(255, 255, 255);
+  color: #000;
+}
+
+/* Form Messages */
+.form-message {
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.form-message.success {
+  background: rgba(76, 175, 80, 0.1);
+  border: 1px solid rgba(76, 175, 80, 0.3);
+  color: #4caf50;
+}
+
+.form-message.error {
+  background: rgba(244, 67, 54, 0.1);
+  border: 1px solid rgba(244, 67, 54, 0.3);
+  color: #f44336;
+}
+
+/* Disabled Button State */
+.primary-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.primary-button:disabled:hover {
+  transform: none;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
 }
 
 /* Buttons */

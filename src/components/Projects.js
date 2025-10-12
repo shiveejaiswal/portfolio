@@ -11,10 +11,19 @@ import project6Image from "../assets/images/project6.png";
 import project7Image from "../assets/images/project7.png";
 import project8Image from "../assets/images/project8.png";
 import project9Image from "../assets/images/project9.png";
+import project10Image from "../assets/images/project10.jpg";
 
 
 const Projects = () => {
   const projects = [
+    {
+      title: "Locale Resource Manager",
+      description: "I developed a localization management system using ASP.NET (C#), React, and SQL Server, where I built secure RESTful APIs and implemented role-based access control. I also created responsive dashboards with search and filter features to improve resource management and team collaboration.",
+      image: project10Image,
+      technologies: ["ASP.NET", "SQL Server", "React"],
+      github: "",
+      live: ""
+    },
     {
       title: "Bank Management System",
       description: "Developed a bank management system, to manage customer accounts, transactions, and employee details. It's a user-friendly GUI with elegant user experience and enable smooth interactions like account creation, balance inquiry, and transaction history.",

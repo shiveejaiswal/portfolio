@@ -1,12 +1,16 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion, useScroll, useSpring } from "framer-motion";
 import { FiDownload } from "react-icons/fi";
-import { RiFileExcel2Fill } from "react-icons/ri";
-import { FaCode, FaJava, FaDatabase, FaHtml5, FaNetworkWired, FaGitAlt } from "react-icons/fa";
+import { FaLock } from "react-icons/fa";
+import { AiFillCode } from "react-icons/ai";
+import { FaUserGear } from "react-icons/fa6";
+import { TbApi } from "react-icons/tb";
+import { FaCode, FaJava, FaDatabase, FaGitAlt } from "react-icons/fa";
 import { MdOutlineEmojiObjects } from "react-icons/md";
-import { SiGoogleanalytics } from "react-icons/si";
 import { GrSystem } from "react-icons/gr";
 import { IoLogoJavascript } from "react-icons/io5";
+import emailjs from '@emailjs/browser';
+import { emailConfig } from './config/emailConfig';
 import Header from './components/Header';
 import Projects from './components/Projects';
 import Footer from './components/Footer';
@@ -23,10 +27,149 @@ function App() {
     restDelta: 0.001
   });
 
+  // Form state management
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const [formStatus, setFormStatus] = useState({
+    isSubmitting: false,
+    isSuccess: false,
+    isError: false,
+    message: ''
+  });
+
   useEffect(() => {
     document.body.style.overflow = 'auto';
     document.body.style.overflowX = 'hidden';
+    
+    // Initialize EmailJS with your public key
+    emailjs.init(emailConfig.publicKey);
+    
+    // Test EmailJS connection (remove this after testing)
+    console.log('EmailJS Config:', {
+      serviceId: emailConfig.serviceId,
+      templateId: emailConfig.templateId,
+      publicKey: emailConfig.publicKey ? 'Set' : 'Not Set'
+    });
   }, []);
+
+  // Handle form input changes
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    // Basic validation
+    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+      setFormStatus({
+        isSubmitting: false,
+        isSuccess: false,
+        isError: true,
+        message: 'Please fill in all fields.'
+      });
+      return;
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      setFormStatus({
+        isSubmitting: false,
+        isSuccess: false,
+        isError: true,
+        message: 'Please enter a valid email address.'
+      });
+      return;
+    }
+
+    setFormStatus({
+      isSubmitting: true,
+      isSuccess: false,
+      isError: false,
+      message: ''
+    });
+
+    try {
+      // Prepare template parameters
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+        to_email: emailConfig.toEmail,
+        reply_to: formData.email,
+      };
+
+      // Send email using EmailJS
+      const response = await emailjs.send(
+        emailConfig.serviceId,
+        emailConfig.templateId,
+        templateParams,
+        emailConfig.publicKey
+      );
+
+      console.log('Email sent successfully:', response);
+      
+      setFormStatus({
+        isSubmitting: false,
+        isSuccess: true,
+        isError: false,
+        message: 'Thank you! Your message has been sent successfully. I\'ll get back to you soon!'
+      });
+
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        message: ''
+      });
+
+      // Clear success message after 5 seconds
+      setTimeout(() => {
+        setFormStatus(prev => ({
+          ...prev,
+          isSuccess: false,
+          message: ''
+        }));
+      }, 5000);
+
+    } catch (error) {
+      console.error('Email sending failed:', error);
+      console.error('Error details:', {
+        status: error.status,
+        text: error.text,
+        message: error.message
+      });
+      
+      let errorMessage = 'Sorry, there was an error sending your message. Please try again or contact me directly at shiveejaiswal25@gmail.com';
+      
+      // More specific error messages
+      if (error.status === 400) {
+        errorMessage = 'Invalid email configuration. Please check your EmailJS setup.';
+      } else if (error.status === 401) {
+        errorMessage = 'Authentication failed. Please check your EmailJS public key.';
+      } else if (error.status === 403) {
+        errorMessage = 'Access denied. Please check your EmailJS service permissions.';
+      } else if (error.status === 404) {
+        errorMessage = 'Email service not found. Please check your service ID.';
+      }
+      
+      setFormStatus({
+        isSubmitting: false,
+        isSuccess: false,
+        isError: true,
+        message: errorMessage
+      });
+    }
+  };
 
   return (
     <div className="app">
@@ -112,15 +255,15 @@ function App() {
             <div className="about-content">
               <div className="about-text">
                 <p>
-                  I am a final-year B.E. student in Information Science at Nitte Meenakshi Institute of Technology, Bengaluru, with a strong passion for coding, problem-solving, and building impactful software solutions. My technical expertise spans frontend and backend development, including proficiency in HTML, CSS, JavaScript, React.js and Java, coupled with hands-on experience in developing user-friendly web applications and efficient systems.
+                  Hello, my name is Shivee Jaiswal, and I am a software engineer based in Bengaluru with a Bachelor’s in Information Science Engineering from Nitte Meenakshi Institute of Technology, where I graduated with a CGPA of 8.68. Currently, I work as an Associate Software Engineer at Solera, where I contribute as a full stack developer to a localization management system, focusing on building and securing RESTful APIs, implementing role-based access control, and designing responsive UI dashboards that streamline resource tracking and collaboration.
                 </p>
                 <p>
-                  I thrive in collaborative environments and have successfully contributed to diverse projects, such as building dynamic websites and creating management systems. Committed to continuous learning, I actively seek opportunities to explore new technologies and enhance my skills. My goal is to contribute to a team that values innovation, quality, and meaningful impact while fostering personal and professional growth.
+                 My technical skills include Java, React.js, C++, SQL, RESTful APIs, JWT Authentication, and microservices architecture, while my strengths in teamwork, adaptability, and clear communication help me thrive in collaborative and challenging environments. Alongside my professional work, I have undertaken projects such as developing a bank management system using Java and SQL, and building a movie recommendation app integrating Python, Node.js, and real-time movie data using the TMDB API, all of which have helped me deepen my problem-solving abilities and deliver practical, user-friendly solutions.
                 </p>
                 
                 <div className="about-stats">
                   <div className="stat-item">
-                    <h3>250+</h3>
+                    <h3>500+</h3>
                     <p>DSA Problems solved</p>
                   </div>
                   <div className="stat-item">
@@ -128,7 +271,7 @@ function App() {
                     <p>CGPA</p>
                   </div>
                   <div className="stat-item">
-                    <h3>9+</h3>
+                    <h3>10+</h3>
                     <p>Projects Completed</p>
                   </div>
                 </div>
@@ -152,17 +295,17 @@ function App() {
     <div className="skills-grid">
       {[
         { name: 'Java', level: 85, icon: <FaJava /> },
-        { name: 'Python', level: 70, icon: <FaCode /> },
-        { name: 'DSA', level: 80, icon: <FaCode /> },
-        { name: 'OOPs', level: 90, icon: <MdOutlineEmojiObjects /> }, 
+        { name: 'React.js', level: 78, icon: <IoLogoJavascript /> },
+        { name: 'C#', level: 75, icon: <AiFillCode  /> },
+        { name: 'C', level: 70, icon: <AiFillCode  /> },
         { name: 'SQL', level: 80, icon: <FaDatabase /> },
-        { name: 'Java Script (React)', level: 60, icon: <IoLogoJavascript /> },
-        { name: 'CN', level: 70, icon: <FaNetworkWired /> },
-        { name: 'OS', level: 70, icon: <GrSystem /> }, 
-        { name: 'HTML/CSS', level: 85, icon: <FaHtml5 /> },
-        { name: 'MS Excel', level: 80, icon: <RiFileExcel2Fill /> },
-        { name: 'Power BI', level: 80, icon: <SiGoogleanalytics /> },
-        { name: 'Version Control System', level: 90, icon: <FaGitAlt /> }
+        { name: 'RESTful APIs', level: 75, icon: <TbApi  /> },
+        { name: 'JWT Authentication', level: 70, icon: <FaLock /> },
+        { name: 'Microservices MVC', level: 65, icon: <FaUserGear /> },
+        { name: 'OOPs', level: 83, icon: <MdOutlineEmojiObjects /> },
+        { name: 'OS', level: 70, icon: <GrSystem /> },
+        { name: 'DSA', level: 80, icon: <FaCode /> },
+        { name: 'Version Control System', level: 78, icon: <FaGitAlt /> },
       ].map((skill, index) => (
         <motion.div
           key={skill.name}
@@ -211,18 +354,51 @@ function App() {
                   </a>
                 </p>
               </div>
-              <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
+              <form className="contact-form" onSubmit={handleSubmit}>
                 <div className="form-group">
-                  <input type="text" placeholder="Your Name" required />
+                  <input 
+                    type="text" 
+                    name="name"
+                    placeholder="Your Name" 
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    required 
+                  />
                 </div>
                 <div className="form-group">
-                  <input type="email" placeholder="Your Email" required />
+                  <input 
+                    type="email" 
+                    name="email"
+                    placeholder="Your Email" 
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required 
+                  />
                 </div>
                 <div className="form-group">
-                  <textarea placeholder="Your Message" rows={6} required></textarea>
+                  <textarea 
+                    name="message"
+                    placeholder="Your Message" 
+                    rows={6} 
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    required
+                  ></textarea>
                 </div>
-                <button type="submit" className="primary-button">
-                  Send Message
+                
+                {/* Form Status Messages */}
+                {formStatus.message && (
+                  <div className={`form-message ${formStatus.isSuccess ? 'success' : 'error'}`}>
+                    {formStatus.message}
+                  </div>
+                )}
+                
+                <button 
+                  type="submit" 
+                  className="primary-button"
+                  disabled={formStatus.isSubmitting}
+                >
+                  {formStatus.isSubmitting ? 'Sending...' : 'Send Message'}
                 </button>
               </form>
             </div>
